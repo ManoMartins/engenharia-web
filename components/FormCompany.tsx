@@ -7,7 +7,6 @@ import {
   Select,
   Stack,
 } from "@chakra-ui/react";
-import { useEffect } from "react";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import { FiTrash } from "react-icons/fi";
 
@@ -17,12 +16,6 @@ export const FormCompany = () => {
     control,
     name: "empresas",
   });
-
-  useEffect(() => {
-    append({
-      tipoEmpresa: "",
-    });
-  }, [append]);
 
   return (
     <Stack as="fieldset" shadow="md" px="8" py="12" borderRadius="md">
@@ -36,6 +29,7 @@ export const FormCompany = () => {
       >
         Adicionar empresa
       </Button>
+      
       {fields.map((field, index) => (
         <Stack direction="row" key={field.id} alignItems="end">
           <FormControl>

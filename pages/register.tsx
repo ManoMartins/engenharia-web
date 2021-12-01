@@ -54,7 +54,14 @@ interface FormTypeSubmit {
 }
 
 const Register = () => {
-  const methods = useForm();
+  const methods = useForm({
+    defaultValues: {
+      cnaes: [{ numero: "" }],
+      empresas: [{ tipoEmpresa: "FILIAL" }],
+      produtos: [{ nome: "", descricao: "" }],
+      servicos: [{ codigo: "", descricao: "", dataInicio: "" }],
+    },
+  });
   const toast = useToast({ position: "top-right" });
   const router = useRouter();
 
